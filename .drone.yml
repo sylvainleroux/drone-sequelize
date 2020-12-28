@@ -1,0 +1,18 @@
+kind: pipeline
+type: docker
+name: publish
+
+platform:
+  os: linux
+  arch: arm
+
+steps:
+  - name: publish
+    image: plugins/docker
+    settings:
+      repo: sylvainleroux/drone-sequelize
+      auto_tag: true
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
